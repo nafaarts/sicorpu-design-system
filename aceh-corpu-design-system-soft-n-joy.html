@@ -1,0 +1,365 @@
+<!-- Aceh Corporate University — Design System.
+     Palette derived from a user-supplied image and used here as a PLACEHOLDER identity.
+     This is NOT the institution's official brand (logo/colors/motto unverified).
+     Canonical colors = hex labels from the source image; other values are derived. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aceh Corporate University — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* ---- CORE PALETTE (canonical = printed labels in source image) ---- */
+    --teal-500:#53a687;      /* primary brand */
+    --yellowgreen:#c1d96c;   /* secondary */
+    --lime:#def294;          /* tertiary / highlight */
+    --peach:#f2b885;         /* accent */
+    --mint:#e8faf4;          /* base background */
+
+    /* ---- PRIMARY SCALE (derived by interpolation, not in source) ---- */
+    --teal-50:#f1f8f5;  --teal-100:#e0efe9; --teal-200:#beddd1;
+    --teal-300:#98cab7; --teal-400:#72b69d; --teal-600:#479377;
+    --teal-700:#3a7f68; --teal-800:#2c6a56; --teal-900:#1d5243;
+
+    /* ---- SEMANTIC (derived) ---- */
+    --ink:#14463a;           /* primary text — deep desaturated teal */
+    --ink-soft:#3a6b5c;      /* secondary text */
+    --surface:#ffffff;
+    --surface-mint:#e8faf4;
+    --border:#cde8de;
+    --on-primary:#ffffff;    /* use ONLY on --teal-700 or darker */
+
+    /* ---- RADIUS (tightened for an institutional / government register) ---- */
+    --r-sm:3px; --r-md:5px; --r-lg:8px; --r-xl:10px;
+    --r-pill:6px;            /* tags & buttons: was fully-round, now squared off */
+    --shadow:0 12px 28px -20px rgba(20,70,58,.40);
+
+    /* ---- TYPE ---- */
+    --display:"Inter",system-ui,sans-serif;   /* main UI + headings */
+    --body:"Inter",system-ui,sans-serif;      /* main body */
+    --reading:"Lexend","Inter",system-ui,sans-serif; /* optional easy-reading mode */
+  }
+  /* Opt-in easy-reading mode: add class="reading" to <body> or any container */
+  .reading,.reading :where(p,li,td,th,h1,h2,h3,.lede){font-family:var(--reading)}
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--surface-mint);color:var(--ink);
+    font-family:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:clamp(20px,5vw,56px)}
+  a{color:var(--teal-700)}
+
+  /* ---------- header ---------- */
+  .mast{margin-bottom:48px}
+  .overline{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--teal-600);margin:0 0 10px}
+  .word{font-family:var(--display);font-weight:800;font-size:clamp(30px,6vw,52px);
+    color:var(--teal-800);letter-spacing:-.02em;line-height:1.05;max-width:18ch}
+  .word .accent{color:var(--teal-500)}
+  .tag{font-weight:500;color:var(--ink-soft);margin:10px 0 0;font-size:clamp(14px,2.5vw,17px);max-width:52ch}
+  .kicker{display:inline-block;margin-top:22px;font-family:var(--display);font-weight:700;
+    font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-700);
+    background:var(--lime);padding:7px 14px;border-radius:var(--r-pill)}
+
+  /* ---------- section scaffolding ---------- */
+  section{margin-top:56px}
+  .eyebrow{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--teal-600);margin:0 0 6px}
+  h2{font-family:var(--display);font-weight:700;font-size:clamp(24px,4.5vw,32px);
+    margin:0 0 4px;letter-spacing:-.01em}
+  .lede{color:var(--ink-soft);margin:0 0 22px;max-width:62ch}
+
+  /* ---------- core swatches ---------- */
+  .palette{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+  .sw{border-radius:var(--r-lg);overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+  .sw .chip{height:120px;display:flex;align-items:flex-end;padding:12px}
+  .sw .role{font-family:var(--display);font-weight:700;font-size:12px;
+    background:rgba(255,255,255,.85);color:var(--ink);padding:3px 9px;border-radius:var(--r-pill)}
+  .sw .meta{padding:12px 14px 16px}
+  .sw .hx{font-family:var(--display);font-weight:700;font-size:17px}
+  .sw .rgb{font-size:12px;color:var(--ink-soft);margin-top:2px}
+  .sw .note{font-size:11px;color:var(--peach);font-weight:600;margin-top:6px}
+  .sw .note.ok{color:var(--teal-600)}
+
+  /* ---------- primary scale ---------- */
+  .scale{display:flex;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow);flex-wrap:wrap}
+  .scale .step{flex:1 1 90px;min-height:78px;padding:10px 12px;display:flex;flex-direction:column;
+    justify-content:space-between;font-size:11px;font-weight:600}
+  .scale .step .n{font-family:var(--display);font-weight:700;font-size:13px}
+
+  /* ---------- contrast table ---------- */
+  .tbl{width:100%;border-collapse:collapse;background:var(--surface);border-radius:var(--r-md);
+    overflow:hidden;box-shadow:var(--shadow);font-size:14px}
+  .tbl th,.tbl td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--mint)}
+  .tbl th{font-family:var(--display);font-weight:700;background:var(--teal-50);color:var(--teal-800);
+    font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+  .tbl tr:last-child td{border-bottom:none}
+  .demo{display:inline-flex;align-items:center;justify-content:center;width:74px;height:30px;
+    border-radius:8px;font-weight:600;font-size:12px;margin-right:4px}
+  .ratio{font-family:var(--display);font-weight:700}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:var(--r-pill);font-family:var(--display)}
+  .b-aaa{background:var(--teal-700);color:#fff}
+  .b-aa{background:var(--lime);color:var(--ink)}
+  .b-lg{background:var(--peach);color:var(--ink)}
+  .b-fail{background:#f7d9d3;color:#9a3a26}
+
+  /* ---------- type ---------- */
+  .type-card{background:var(--surface);border-radius:var(--r-lg);padding:26px;box-shadow:var(--shadow)}
+  .specimen{font-family:var(--display);font-weight:700;font-size:clamp(34px,8vw,64px);
+    color:var(--teal-500);line-height:1;letter-spacing:-.02em}
+  .glyphs{font-family:var(--display);font-weight:600;font-size:18px;color:var(--ink-soft);margin-top:10px;letter-spacing:.02em}
+  .scale-list{margin-top:22px;display:grid;gap:10px}
+  .scale-list .row{display:flex;align-items:baseline;gap:14px;border-top:1px solid var(--mint);padding-top:10px}
+  .scale-list .lab{font-size:12px;color:var(--ink-soft);width:108px;flex:none;font-weight:600}
+
+  /* ---------- components ---------- */
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .card{background:var(--surface);border-radius:var(--r-xl);padding:22px;box-shadow:var(--shadow)}
+  .card h3{font-family:var(--display);margin:0 0 4px;font-size:19px}
+  .price{font-family:var(--display);font-weight:700;color:var(--teal-600);font-size:22px}
+  .pill{display:inline-block;font-family:var(--display);font-weight:700;font-size:12px;
+    padding:6px 13px;border-radius:var(--r-pill);margin:0 6px 6px 0}
+  .p-lime{background:var(--lime);color:var(--ink)}
+  .p-yg{background:var(--yellowgreen);color:var(--ink)}
+  .p-peach{background:var(--peach);color:#7a3f1c}
+  .p-mint{background:var(--mint);color:var(--teal-700)}
+  .btn{font-family:var(--display);font-weight:700;border:none;cursor:pointer;
+    padding:13px 22px;border-radius:var(--r-pill);font-size:15px;transition:transform .15s,filter .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn:focus-visible{outline:3px solid var(--teal-300);outline-offset:2px}
+  .btn-primary{background:var(--teal-700);color:#fff}          /* AA-safe white text */
+  .btn-secondary{background:var(--lime);color:var(--ink)}
+  .btn-accent{background:var(--peach);color:#7a3f1c}
+  .btn-ghost{background:transparent;color:var(--teal-700);box-shadow:inset 0 0 0 2px var(--teal-300)}
+  .btnrow{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+
+  /* ---------- CSS token block ---------- */
+  pre{background:var(--teal-900);color:#dff3ea;border-radius:var(--r-md);padding:22px;
+    overflow:auto;font-size:13px;line-height:1.7;font-family:ui-monospace,Menlo,monospace}
+  pre .c{color:#9fd8c2}
+
+  .callout{background:#fff;border-left:5px solid var(--peach);border-radius:0 var(--r-md) var(--r-md) 0;
+    padding:16px 20px;box-shadow:var(--shadow);font-size:14px;color:var(--ink-soft)}
+  .callout b{color:var(--ink)}
+
+  footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--border);
+    font-size:13px;color:var(--ink-soft)}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <p class="overline">Pemerintah Aceh</p>
+    <div class="word">Aceh <span class="accent">Corporate</span> University</div>
+    <p class="tag">Sistem pembelajaran dan pengembangan kompetensi ASN secara terintegrasi</p>
+    <span class="kicker">Design System</span>
+  </header>
+
+  <!-- ============ CORE PALETTE ============ -->
+  <section>
+    <p class="eyebrow">01 · Foundations</p>
+    <h2>Core palette</h2>
+    <p class="lede">Five colors lifted straight from the source. Values shown are the hex labels printed
+      in the original artwork — the canonical spec. Roles are assigned for this system.</p>
+    <div class="palette">
+      <div class="sw">
+        <div class="chip" style="background:#53a687"><span class="role">Primary</span></div>
+        <div class="meta"><div class="hx">#53a687</div><div class="rgb">rgb(83, 166, 135)</div>
+          <div class="note">render differs: #00a887</div></div>
+      </div>
+      <div class="sw">
+        <div class="chip" style="background:#c1d96c"><span class="role">Secondary</span></div>
+        <div class="meta"><div class="hx">#c1d96c</div><div class="rgb">rgb(193, 217, 108)</div>
+          <div class="note ok">render ≈ match</div></div>
+      </div>
+      <div class="sw">
+        <div class="chip" style="background:#def294"><span class="role">Tertiary</span></div>
+        <div class="meta"><div class="hx">#def294</div><div class="rgb">rgb(222, 242, 148)</div>
+          <div class="note ok">render ≈ match</div></div>
+      </div>
+      <div class="sw">
+        <div class="chip" style="background:#f2b885"><span class="role">Accent</span></div>
+        <div class="meta"><div class="hx">#f2b885</div><div class="rgb">rgb(242, 184, 133)</div>
+          <div class="note">render differs: #ffba83</div></div>
+      </div>
+      <div class="sw">
+        <div class="chip" style="background:#e8faf4;border:1px solid var(--border)"><span class="role">Background</span></div>
+        <div class="meta"><div class="hx">#e8faf4</div><div class="rgb">rgb(232, 250, 244)</div>
+          <div class="note ok">render ≈ match</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRIMARY SCALE ============ -->
+  <section>
+    <p class="eyebrow">02 · Foundations</p>
+    <h2>Primary scale</h2>
+    <p class="lede">The brand teal needs lighter and darker steps for surfaces, hovers, and text.
+      These nine are <b>derived by interpolation</b> from <code>#53a687</code> toward white and a deep teal —
+      they are not present in the source image. Tune to taste.</p>
+    <div class="scale">
+      <div class="step" style="background:#f1f8f5;color:#1d5243"><span class="n">50</span><span>#f1f8f5</span></div>
+      <div class="step" style="background:#e0efe9;color:#1d5243"><span class="n">100</span><span>#e0efe9</span></div>
+      <div class="step" style="background:#beddd1;color:#1d5243"><span class="n">200</span><span>#beddd1</span></div>
+      <div class="step" style="background:#98cab7;color:#14463a"><span class="n">300</span><span>#98cab7</span></div>
+      <div class="step" style="background:#72b69d;color:#14463a"><span class="n">400</span><span>#72b69d</span></div>
+      <div class="step" style="background:#53a687;color:#14463a"><span class="n">500</span><span>#53a687</span></div>
+      <div class="step" style="background:#479377;color:#fff"><span class="n">600</span><span>#479377</span></div>
+      <div class="step" style="background:#3a7f68;color:#fff"><span class="n">700</span><span>#3a7f68</span></div>
+      <div class="step" style="background:#2c6a56;color:#fff"><span class="n">800</span><span>#2c6a56</span></div>
+      <div class="step" style="background:#1d5243;color:#fff"><span class="n">900</span><span>#1d5243</span></div>
+    </div>
+  </section>
+
+  <!-- ============ ACCESSIBILITY ============ -->
+  <section>
+    <p class="eyebrow">03 · Foundations</p>
+    <h2>Contrast &amp; accessibility</h2>
+    <p class="lede">Ratios below are computed with the exact WCAG 2.x formula. The headline finding:
+      <b>white text on the primary teal fails AA</b> — use <code>teal-700</code> or darker for white text.</p>
+    <table class="tbl">
+      <thead><tr><th>Combination</th><th>Preview</th><th>Ratio</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>White on primary <code>#53a687</code></td>
+          <td><span class="demo" style="background:#53a687;color:#fff">Aa</span></td>
+          <td class="ratio">2.93</td><td><span class="badge b-fail">Fail</span></td></tr>
+        <tr><td>White on <code>teal-700</code></td>
+          <td><span class="demo" style="background:#3a7f68;color:#fff">Aa</span></td>
+          <td class="ratio">4.76</td><td><span class="badge b-aa">AA</span></td></tr>
+        <tr><td>Ink <code>#14463a</code> on mint bg</td>
+          <td><span class="demo" style="background:#e8faf4;color:#14463a">Aa</span></td>
+          <td class="ratio">9.87</td><td><span class="badge b-aaa">AAA</span></td></tr>
+        <tr><td>Ink on light lime</td>
+          <td><span class="demo" style="background:#def294;color:#14463a">Aa</span></td>
+          <td class="ratio">8.76</td><td><span class="badge b-aaa">AAA</span></td></tr>
+        <tr><td>Ink on yellow-green</td>
+          <td><span class="demo" style="background:#c1d96c;color:#14463a">Aa</span></td>
+          <td class="ratio">6.82</td><td><span class="badge b-aa">AA</span></td></tr>
+        <tr><td>Ink on peach accent</td>
+          <td><span class="demo" style="background:#f2b885;color:#14463a">Aa</span></td>
+          <td class="ratio">6.09</td><td><span class="badge b-aa">AA</span></td></tr>
+        <tr><td>Primary teal on mint bg</td>
+          <td><span class="demo" style="background:#e8faf4;color:#53a687">Aa</span></td>
+          <td class="ratio">2.71</td><td><span class="badge b-fail">Fail*</span></td></tr>
+      </tbody>
+    </table>
+    <p class="lede" style="margin-top:14px;font-size:13px">*Teal text on mint is fine for large/bold display only (≥24px or ≥18.66px bold → 3.0 threshold). For body text on mint, use the ink color.</p>
+  </section>
+
+  <!-- ============ TYPOGRAPHY ============ -->
+  <section>
+    <p class="eyebrow">04 · Foundations</p>
+    <h2>Typography</h2>
+    <p class="lede"><b>Inter</b> is the system's main typeface — SIL Open Font License, on Google Fonts,
+      built for on-screen UI and dense data. <b>Lexend</b> (also OFL) is wired in as an optional
+      easy-reading mode for body text: add <code>class="reading"</code> to any container. Use Inter weights
+      400/500 for body and UI, 600/700 for headings, 800 for the wordmark. Both cover the Latin script used
+      in Indonesian; Inter also carries broad extended-Latin and tabular figures for forms and tables.</p>
+    <div class="type-card">
+      <div class="specimen">Aa</div>
+      <div class="glyphs">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm<br>Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz · 0123456789</div>
+      <div class="scale-list">
+        <div class="row"><span class="lab">Display / 64</span><span style="font-family:var(--display);font-weight:800;font-size:30px;color:var(--teal-700)">Pengembangan kompetensi ASN</span></div>
+        <div class="row"><span class="lab">H2 / 32</span><span style="font-family:var(--display);font-weight:700;font-size:22px">Judul bagian</span></div>
+        <div class="row"><span class="lab">Body / 16 · Inter</span><span style="font-size:15px">Bina kompetensi aparatur melalui pembelajaran terintegrasi. Inter pada line height 1.55 untuk teks antarmuka.</span></div>
+        <div class="row"><span class="lab">Reading / 16 · Lexend</span><span style="font-family:var(--reading);font-size:15px">Bina kompetensi aparatur melalui pembelajaran terintegrasi. Lexend, spasi lebih lega, sebagai mode baca opsional.</span></div>
+        <div class="row"><span class="lab">Tabular / 16</span><span style="font-feature-settings:'tnum';font-size:15px">NIP 198603152010011002 · 32 JP · No. Sertifikat ACU/2026/0481 · 19/06/2026</span></div>
+        <div class="row"><span class="lab">Caption / 12</span><span style="font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.1em">Pelatihan direkomendasikan</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPONENTS ============ -->
+  <section>
+    <p class="eyebrow">05 · Application</p>
+    <h2>Components in context</h2>
+    <p class="lede">The palette working together in a learning-platform context. Note every white-text button
+      uses <code>teal-700</code>, not the raw primary.</p>
+
+    <div style="margin:0 0 22px">
+      <div class="btnrow">
+        <button class="btn btn-primary">Daftar pelatihan</button>
+        <button class="btn btn-secondary">Simpan</button>
+        <button class="btn btn-accent">Unduh sertifikat</button>
+        <button class="btn btn-ghost">Lihat silabus</button>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <span class="pill p-lime">Kepemimpinan</span>
+        <h3>Manajemen ASN Berbasis Kinerja</h3>
+        <p style="margin:4px 0 14px;color:var(--ink-soft);font-size:14px">Blended learning · 32 JP · BPSDM Aceh. Direkomendasikan untuk Anda.</p>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span class="price" style="font-feature-settings:'tnum'">32 JP</span>
+          <button class="btn btn-primary" style="padding:10px 18px">Daftar</button>
+        </div>
+      </div>
+      <div class="card" style="background:var(--teal-700);color:#fff">
+        <span class="pill p-lime">Jalur belajar</span>
+        <h3 style="color:#fff">Kepemimpinan · 65%</h3>
+        <p style="margin:4px 0 14px;color:#bfe3d6;font-size:14px">4 dari 6 modul selesai · estimasi 8 JP tersisa</p>
+        <button class="btn btn-secondary">Lanjutkan belajar</button>
+      </div>
+      <div class="card">
+        <h3>Tag styles</h3>
+        <p style="margin:4px 0 14px;color:var(--ink-soft);font-size:14px">Category &amp; status chips.</p>
+        <span class="pill p-yg">Teknis</span>
+        <span class="pill p-lime">Microlearning</span>
+        <span class="pill p-peach">Baru</span>
+        <span class="pill p-mint">Wajib</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOKENS ============ -->
+  <section>
+    <p class="eyebrow">06 · Handoff</p>
+    <h2>Copy-paste tokens</h2>
+    <p class="lede">Drop these CSS custom properties into <code>:root</code>. Source colors are the labelled
+      values; scale and semantic colors are derived.</p>
+    <pre><span class="c">/* core — from source image labels */</span>
+--color-primary:    #53a687;
+--color-secondary:  #c1d96c;
+--color-tertiary:   #def294;
+--color-accent:     #f2b885;
+--color-background: #e8faf4;
+
+<span class="c">/* primary scale — derived */</span>
+--teal-50:#f1f8f5; --teal-100:#e0efe9; --teal-200:#beddd1;
+--teal-300:#98cab7; --teal-400:#72b69d; --teal-500:#53a687;
+--teal-600:#479377; --teal-700:#3a7f68; --teal-800:#2c6a56; --teal-900:#1d5243;
+
+<span class="c">/* semantic — derived */</span>
+--text-primary:   #14463a;
+--text-secondary: #3a6b5c;
+--surface:        #ffffff;
+--border:         #cde8de;
+--on-primary:     #ffffff;  <span class="c">/* use on --teal-700+ only */</span>
+
+<span class="c">/* type — both SIL Open Font License, on Google Fonts */</span>
+--font-main:    "Inter", system-ui, sans-serif;
+--font-reading: "Lexend", "Inter", system-ui, sans-serif; <span class="c">/* opt-in */</span>
+
+<span class="c">/* radius — tightened for institutional tone */</span>
+--r-sm:3px; --r-md:5px; --r-lg:8px; --r-xl:10px; --r-pill:6px;</pre>
+
+    <div class="callout" style="margin-top:20px">
+      <b>Three honest caveats.</b> (1) This green palette is carried over from the source image as a
+      <b>placeholder identity</b> — it is not Aceh Corporate University's verified official brand. If an
+      official logo/color/motto exists, replace these tokens with it. (2) The teal and peach swatches render
+      more saturated in the source PNG (<code>#00a887</code>, <code>#ffba83</code>) than their printed labels —
+      built on the labels; swap if you prefer the punchier render. (3) The 50–900 scale and all semantic
+      colors are interpolated, not extracted — a sensible starting point, not gospel.
+    </div>
+  </section>
+
+  <footer>
+    Aceh Corporate University · design system. Palette derived from a user-supplied image and used here
+    as a placeholder identity — not the institution's verified official brand. Hex labels are the source's
+    own; scales, semantic roles, and contrast analysis added here.
+    Font specimens use Inter (main) and Lexend (optional reading mode) — both SIL Open Font License.
+  </footer>
+</div>

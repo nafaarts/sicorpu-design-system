@@ -1,0 +1,361 @@
+<!-- Aceh Corporate University — Design System.
+     Calm, emblem-anchored palette: green hue from the Pancacita seal (desaturated for
+     long-session comfort) + the seal's gold as a small accent. Green scale and semantic
+     colours are derived/computed; see the caveats in the Handoff section. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aceh Corporate University — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* ---- GREEN SCALE — emblem hue (147°), desaturated for comfort ---- */
+    --green-50:#f1f9f5;  --green-100:#dff1e8; --green-200:#c0e3d0; --green-300:#8dceaa;
+    --green-400:#4cbd7f; --green-500:#2e9e60; --green-600:#288050; --green-700:#1f6b41;
+    --green-800:#195737; --green-900:#163b29;
+
+    /* ---- GOLD ACCENT — from the seal, small areas only ---- */
+    --gold:#fcd800;          /* sparks/highlights; dark text only, never white */
+    --gold-muted:#e2ba36;    /* for slightly larger accent moments */
+
+    /* ---- OPTIONAL highlight (carried from source — safe to delete) ---- */
+    --highlight:#def294;
+
+    /* ---- SEMANTIC ---- */
+    --bg:#f1f9f5;            /* page background — restful green tint */
+    --surface:#ffffff;
+    --surface-tint:#e6f4ed;  /* alt surface / table stripes */
+    --border:#cfe2d9;
+    --primary:#288050;       /* = green-600 */
+    --primary-hover:#1f6b41; /* = green-700 */
+    --ink:#163b29;           /* primary text = green-900 */
+    --ink-soft:#5a7068;      /* secondary text */
+    --on-primary:#ffffff;    /* safe on green-600 and darker */
+
+    /* ---- RADIUS — tightened, institutional ---- */
+    --r-sm:3px; --r-md:5px; --r-lg:8px; --r-xl:10px; --r-pill:6px;
+    --shadow:0 12px 28px -20px rgba(22,59,41,.35);
+
+    /* ---- TYPE ---- */
+    --display:"Inter",system-ui,sans-serif;
+    --body:"Inter",system-ui,sans-serif;
+    --reading:"Lexend","Inter",system-ui,sans-serif;
+  }
+  /* Opt-in easy-reading mode: add class="reading" to any container */
+  .reading,.reading :where(p,li,td,th,h1,h2,h3,.lede){font-family:var(--reading)}
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:var(--body);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:clamp(20px,5vw,56px)}
+  a{color:var(--primary-hover)}
+
+  /* ---------- header ---------- */
+  .mast{margin-bottom:48px}
+  .overline{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--green-700);margin:0 0 10px}
+  .word{font-family:var(--display);font-weight:800;font-size:clamp(30px,6vw,52px);
+    color:var(--green-800);letter-spacing:-.02em;line-height:1.05;max-width:18ch}
+  .word .accent{color:var(--primary)}
+  .signature{height:6px;width:128px;background:var(--gold);border-radius:2px;margin:18px 0 0}
+  .tag{font-weight:500;color:var(--ink-soft);margin:14px 0 0;font-size:clamp(14px,2.5vw,17px);max-width:52ch}
+  .kicker{display:inline-block;margin-top:22px;font-family:var(--display);font-weight:700;
+    font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--on-primary);
+    background:var(--primary);padding:7px 14px;border-radius:var(--r-pill)}
+
+  /* ---------- section scaffolding ---------- */
+  section{margin-top:56px}
+  .eyebrow{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--green-600);margin:0 0 6px}
+  h2{font-family:var(--display);font-weight:700;font-size:clamp(24px,4.5vw,32px);
+    margin:0 0 4px;letter-spacing:-.01em;color:var(--green-900)}
+  .lede{color:var(--ink-soft);margin:0 0 22px;max-width:64ch}
+
+  /* ---------- core swatches ---------- */
+  .palette{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px}
+  .sw{border-radius:var(--r-lg);overflow:hidden;background:var(--surface);box-shadow:var(--shadow);border:1px solid var(--border)}
+  .sw .chip{height:116px;display:flex;align-items:flex-end;padding:12px}
+  .sw .role{font-family:var(--display);font-weight:700;font-size:12px;
+    background:rgba(255,255,255,.88);color:var(--ink);padding:3px 9px;border-radius:var(--r-pill)}
+  .sw .meta{padding:12px 14px 16px}
+  .sw .hx{font-family:var(--display);font-weight:700;font-size:17px}
+  .sw .rgb{font-size:12px;color:var(--ink-soft);margin-top:2px}
+  .sw .note{font-size:11px;color:var(--green-600);font-weight:600;margin-top:6px}
+
+  /* ---------- scale ---------- */
+  .scale{display:flex;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--shadow);flex-wrap:wrap}
+  .scale .step{flex:1 1 90px;min-height:78px;padding:10px 12px;display:flex;flex-direction:column;
+    justify-content:space-between;font-size:11px;font-weight:600}
+  .scale .step .n{font-family:var(--display);font-weight:700;font-size:13px}
+
+  /* ---------- contrast table ---------- */
+  .tbl{width:100%;border-collapse:collapse;background:var(--surface);border-radius:var(--r-md);
+    overflow:hidden;box-shadow:var(--shadow);font-size:14px;border:1px solid var(--border)}
+  .tbl th,.tbl td{text-align:left;padding:13px 16px;border-bottom:1px solid var(--surface-tint)}
+  .tbl th{font-family:var(--display);font-weight:700;background:var(--green-50);color:var(--green-800);
+    font-size:12px;letter-spacing:.04em;text-transform:uppercase}
+  .tbl tr:last-child td{border-bottom:none}
+  .demo{display:inline-flex;align-items:center;justify-content:center;width:74px;height:30px;
+    border-radius:var(--r-sm);font-weight:600;font-size:12px}
+  .ratio{font-family:var(--display);font-weight:700}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:var(--r-pill);font-family:var(--display)}
+  .b-aaa{background:var(--primary);color:#fff}
+  .b-aa{background:var(--highlight);color:var(--ink)}
+  .b-lg{background:var(--gold);color:var(--ink)}
+  .b-fail{background:#f7d9d3;color:#9a3a26}
+
+  /* ---------- type ---------- */
+  .type-card{background:var(--surface);border-radius:var(--r-lg);padding:26px;box-shadow:var(--shadow);border:1px solid var(--border)}
+  .specimen{font-family:var(--display);font-weight:800;font-size:clamp(34px,8vw,64px);
+    color:var(--primary);line-height:1;letter-spacing:-.02em}
+  .glyphs{font-family:var(--display);font-weight:600;font-size:18px;color:var(--ink-soft);margin-top:10px;letter-spacing:.02em}
+  .scale-list{margin-top:22px;display:grid;gap:10px}
+  .scale-list .row{display:flex;align-items:baseline;gap:14px;border-top:1px solid var(--surface-tint);padding-top:10px;flex-wrap:wrap}
+  .scale-list .lab{font-size:12px;color:var(--ink-soft);width:128px;flex:none;font-weight:600}
+
+  /* ---------- components ---------- */
+  .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+  .card{background:var(--surface);border-radius:var(--r-lg);padding:22px;box-shadow:var(--shadow);border:1px solid var(--border)}
+  .card h3{font-family:var(--display);margin:0 0 4px;font-size:19px;color:var(--green-900)}
+  .meta-figure{font-family:var(--display);font-weight:700;color:var(--primary);font-size:20px;font-feature-settings:'tnum'}
+  .pill{display:inline-block;font-family:var(--display);font-weight:700;font-size:12px;
+    padding:6px 13px;border-radius:var(--r-pill);margin:0 6px 6px 0}
+  .p-soft{background:var(--green-100);color:var(--green-800)}
+  .p-gold{background:var(--gold);color:#5a4a00}
+  .p-highlight{background:var(--highlight);color:var(--ink)}
+  .p-tint{background:var(--surface-tint);color:var(--green-700)}
+  .btn{font-family:var(--display);font-weight:700;border:none;cursor:pointer;
+    padding:13px 22px;border-radius:var(--r-pill);font-size:15px;transition:filter .15s}
+  .btn:hover{filter:brightness(.95)}
+  .btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .btn-primary{background:var(--primary);color:#fff}
+  .btn-primary:hover{background:var(--primary-hover);filter:none}
+  .btn-secondary{background:var(--green-100);color:var(--green-800)}
+  .btn-accent{background:var(--gold);color:#5a4a00}
+  .btn-ghost{background:transparent;color:var(--primary-hover);box-shadow:inset 0 0 0 2px var(--green-300)}
+  .btnrow{display:flex;flex-wrap:wrap;gap:12px}
+
+  /* ---------- tokens ---------- */
+  pre{background:var(--green-900);color:#d9efe2;border-radius:var(--r-md);padding:22px;
+    overflow:auto;font-size:13px;line-height:1.7;font-family:ui-monospace,Menlo,monospace}
+  pre .c{color:#88c7a6}
+  .callout{background:var(--surface);border-left:5px solid var(--gold);border-radius:0 var(--r-md) var(--r-md) 0;
+    padding:16px 20px;box-shadow:var(--shadow);font-size:14px;color:var(--ink-soft)}
+  .callout b{color:var(--ink)}
+
+  footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--border);font-size:13px;color:var(--ink-soft)}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="mast">
+    <p class="overline">Pemerintah Aceh</p>
+    <div class="word">Aceh <span class="accent">Corporate</span> University</div>
+    <div class="signature"></div>
+    <p class="tag">Sistem pembelajaran dan pengembangan kompetensi ASN secara terintegrasi</p>
+    <span class="kicker">Design System</span>
+  </header>
+
+  <!-- ============ CORE PALETTE ============ -->
+  <section>
+    <p class="eyebrow">01 · Foundations</p>
+    <h2>Core palette</h2>
+    <p class="lede">Anchored to the Pancacita seal's two colours — green and gold — but tuned for a platform
+      people use for long stretches: the green keeps the emblem's hue at lower saturation, surfaces stay
+      near-white, and gold appears only in small doses.</p>
+    <div class="palette">
+      <div class="sw">
+        <div class="chip" style="background:#288050"><span class="role">Primary</span></div>
+        <div class="meta"><div class="hx">#288050</div><div class="rgb">rgb(40, 128, 80)</div>
+          <div class="note">emblem hue, desaturated</div></div>
+      </div>
+      <div class="sw">
+        <div class="chip" style="background:#fcd800"><span class="role">Accent</span></div>
+        <div class="meta"><div class="hx">#fcd800</div><div class="rgb">rgb(252, 216, 0)</div>
+          <div class="note">seal gold · small areas only</div></div>
+      </div>
+      <div class="sw">
+        <div class="chip" style="background:#f1f9f5;border-bottom:1px solid var(--border)"><span class="role">Background</span></div>
+        <div class="meta"><div class="hx">#f1f9f5</div><div class="rgb">rgb(241, 249, 245)</div>
+          <div class="note">restful green tint</div></div>
+      </div>
+      <div class="sw">
+        <div class="chip" style="background:#ffffff;border-bottom:1px solid var(--border)"><span class="role">Surface</span></div>
+        <div class="meta"><div class="hx">#ffffff</div><div class="rgb">rgb(255, 255, 255)</div>
+          <div class="note">cards & panels</div></div>
+      </div>
+      <div class="sw">
+        <div class="chip" style="background:#163b29"><span class="role" style="background:rgba(255,255,255,.92)">Text / ink</span></div>
+        <div class="meta"><div class="hx">#163b29</div><div class="rgb">rgb(22, 59, 41)</div>
+          <div class="note">11.6:1 on background</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GREEN SCALE ============ -->
+  <section>
+    <p class="eyebrow">02 · Foundations</p>
+    <h2>Green scale</h2>
+    <p class="lede">Ten steps at the emblem's hue, computed (not extracted). Lighter steps lose saturation so
+      tints stay calm; <code>600</code> is the primary action colour, <code>700</code> its hover, <code>900</code>
+      doubles as body text.</p>
+    <div class="scale">
+      <div class="step" style="background:#f1f9f5;color:#163b29"><span class="n">50</span><span>#f1f9f5</span></div>
+      <div class="step" style="background:#dff1e8;color:#163b29"><span class="n">100</span><span>#dff1e8</span></div>
+      <div class="step" style="background:#c0e3d0;color:#163b29"><span class="n">200</span><span>#c0e3d0</span></div>
+      <div class="step" style="background:#8dceaa;color:#163b29"><span class="n">300</span><span>#8dceaa</span></div>
+      <div class="step" style="background:#4cbd7f;color:#163b29"><span class="n">400</span><span>#4cbd7f</span></div>
+      <div class="step" style="background:#2e9e60;color:#fff"><span class="n">500</span><span>#2e9e60</span></div>
+      <div class="step" style="background:#288050;color:#fff"><span class="n">600</span><span>#288050</span></div>
+      <div class="step" style="background:#1f6b41;color:#fff"><span class="n">700</span><span>#1f6b41</span></div>
+      <div class="step" style="background:#195737;color:#fff"><span class="n">800</span><span>#195737</span></div>
+      <div class="step" style="background:#163b29;color:#fff"><span class="n">900</span><span>#163b29</span></div>
+    </div>
+  </section>
+
+  <!-- ============ ACCESSIBILITY ============ -->
+  <section>
+    <p class="eyebrow">03 · Foundations</p>
+    <h2>Contrast &amp; accessibility</h2>
+    <p class="lede">All ratios computed with the exact WCAG 2.x formula. The calmer green now clears AA for white
+      text, fixing the earlier failure. Gold's one rule: dark text only — never white, never gold text on white.</p>
+    <table class="tbl">
+      <thead><tr><th>Combination</th><th>Preview</th><th>Ratio</th><th>Verdict</th></tr></thead>
+      <tbody>
+        <tr><td>White on primary <code>#288050</code></td>
+          <td><span class="demo" style="background:#288050;color:#fff">Aa</span></td>
+          <td class="ratio">4.89</td><td><span class="badge b-aa">AA</span></td></tr>
+        <tr><td>White on <code>green-700</code> (hover)</td>
+          <td><span class="demo" style="background:#1f6b41;color:#fff">Aa</span></td>
+          <td class="ratio">6.49</td><td><span class="badge b-aa">AA</span></td></tr>
+        <tr><td>Ink <code>#163b29</code> on background</td>
+          <td><span class="demo" style="background:#f1f9f5;color:#163b29">Aa</span></td>
+          <td class="ratio">11.59</td><td><span class="badge b-aaa">AAA</span></td></tr>
+        <tr><td>Ink on white surface</td>
+          <td><span class="demo" style="background:#fff;color:#163b29;border:1px solid #cfe2d9">Aa</span></td>
+          <td class="ratio">12.41</td><td><span class="badge b-aaa">AAA</span></td></tr>
+        <tr><td>Ink on gold accent</td>
+          <td><span class="demo" style="background:#fcd800;color:#163b29">Aa</span></td>
+          <td class="ratio">8.84</td><td><span class="badge b-aaa">AAA</span></td></tr>
+        <tr><td>Secondary text on background</td>
+          <td><span class="demo" style="background:#f1f9f5;color:#5a7068">Aa</span></td>
+          <td class="ratio">4.96</td><td><span class="badge b-aa">AA</span></td></tr>
+        <tr><td>White on gold <code>#fcd800</code></td>
+          <td><span class="demo" style="background:#fcd800;color:#fff">Aa</span></td>
+          <td class="ratio">1.40</td><td><span class="badge b-fail">Avoid</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ============ TYPOGRAPHY ============ -->
+  <section>
+    <p class="eyebrow">04 · Foundations</p>
+    <h2>Typography</h2>
+    <p class="lede"><b>Inter</b> is the main typeface — SIL Open Font License, on Google Fonts, built for
+      on-screen UI and dense data. <b>Lexend</b> (also OFL) is wired in as an optional easy-reading mode for body
+      text: add <code>class="reading"</code> to any container. Inter 400/500 for body and UI, 600/700 for headings,
+      800 for the wordmark; both cover the Latin script used in Indonesian.</p>
+    <div class="type-card">
+      <div class="specimen">Aa</div>
+      <div class="glyphs">Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm<br>Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz · 0123456789</div>
+      <div class="scale-list">
+        <div class="row"><span class="lab">Display / 64</span><span style="font-family:var(--display);font-weight:800;font-size:30px;color:var(--primary)">Pengembangan kompetensi ASN</span></div>
+        <div class="row"><span class="lab">H2 / 32</span><span style="font-family:var(--display);font-weight:700;font-size:22px">Judul bagian</span></div>
+        <div class="row"><span class="lab">Body / 16 · Inter</span><span style="font-size:15px">Bina kompetensi aparatur melalui pembelajaran terintegrasi. Inter pada line height 1.55 untuk teks antarmuka.</span></div>
+        <div class="row"><span class="lab">Reading / 16 · Lexend</span><span style="font-family:var(--reading);font-size:15px">Bina kompetensi aparatur melalui pembelajaran terintegrasi. Lexend, spasi lebih lega, sebagai mode baca opsional.</span></div>
+        <div class="row"><span class="lab">Tabular / 16</span><span style="font-feature-settings:'tnum';font-size:15px">NIP 198603152010011002 · 32 JP · No. Sertifikat ACU/2026/0481 · 19/06/2026</span></div>
+        <div class="row"><span class="lab">Caption / 12</span><span style="font-size:12px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.1em">Pelatihan direkomendasikan</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPONENTS ============ -->
+  <section>
+    <p class="eyebrow">05 · Application</p>
+    <h2>Components in context</h2>
+    <p class="lede">The calm palette working together. Colour guides attention; near-white surfaces do the heavy
+      lifting; gold appears only as a spark. White text sits on <code>green-600</code> or darker.</p>
+
+    <div style="margin:0 0 22px">
+      <div class="btnrow">
+        <button class="btn btn-primary">Daftar pelatihan</button>
+        <button class="btn btn-secondary">Simpan</button>
+        <button class="btn btn-accent">Unduh sertifikat</button>
+        <button class="btn btn-ghost">Lihat silabus</button>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <span class="pill p-soft">Kepemimpinan</span><span class="pill p-gold">Baru</span>
+        <h3>Manajemen ASN Berbasis Kinerja</h3>
+        <p style="margin:4px 0 14px;color:var(--ink-soft);font-size:14px">Blended learning · 32 JP · BPSDM Aceh. Direkomendasikan untuk Anda.</p>
+        <div style="display:flex;align-items:center;justify-content:space-between">
+          <span class="meta-figure">32 JP</span>
+          <button class="btn btn-primary" style="padding:10px 18px">Daftar</button>
+        </div>
+      </div>
+      <div class="card" style="background:var(--green-800);color:#fff;border-color:var(--green-800)">
+        <span class="pill p-gold">Jalur belajar</span>
+        <h3 style="color:#fff">Kepemimpinan · 65%</h3>
+        <p style="margin:4px 0 12px;color:#bcd9c9;font-size:14px">4 dari 6 modul selesai · estimasi 8 JP tersisa</p>
+        <div style="height:8px;border-radius:4px;background:#2c6347;overflow:hidden;margin-bottom:16px">
+          <div style="height:100%;width:65%;background:var(--gold)"></div>
+        </div>
+        <button class="btn btn-accent">Lanjutkan belajar</button>
+      </div>
+      <div class="card">
+        <h3>Tag styles</h3>
+        <p style="margin:4px 0 14px;color:var(--ink-soft);font-size:14px">Category &amp; status chips.</p>
+        <span class="pill p-soft">Teknis</span>
+        <span class="pill p-tint">Microlearning</span>
+        <span class="pill p-gold">Baru</span>
+        <span class="pill p-highlight">Wajib</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOKENS ============ -->
+  <section>
+    <p class="eyebrow">06 · Handoff</p>
+    <h2>Copy-paste tokens</h2>
+    <p class="lede">Drop into <code>:root</code>. The green scale and semantic colours are derived; the two
+      identity colours trace to the emblem.</p>
+    <pre><span class="c">/* identity — anchored to the Pancacita seal */</span>
+--primary:        #288050;  <span class="c">/* emblem-hue green, desaturated */</span>
+--primary-hover:  #1f6b41;
+--gold:           #fcd800;  <span class="c">/* accent — dark text only, small areas */</span>
+--gold-muted:     #e2ba36;
+
+<span class="c">/* green scale — derived (hue 147°) */</span>
+--green-50:#f1f9f5;  --green-100:#dff1e8; --green-200:#c0e3d0; --green-300:#8dceaa;
+--green-400:#4cbd7f; --green-500:#2e9e60; --green-600:#288050; --green-700:#1f6b41;
+--green-800:#195737; --green-900:#163b29;
+
+<span class="c">/* surfaces & text — derived */</span>
+--bg:#f1f9f5; --surface:#ffffff; --surface-tint:#e6f4ed; --border:#cfe2d9;
+--ink:#163b29; --ink-soft:#5a7068; --on-primary:#ffffff;
+
+<span class="c">/* type (both SIL OFL) + radius */</span>
+--font-main:"Inter",system-ui,sans-serif;
+--font-reading:"Lexend","Inter",system-ui,sans-serif;
+--r-sm:3px; --r-md:5px; --r-lg:8px; --r-xl:10px; --r-pill:6px;</pre>
+
+    <div class="callout" style="margin-top:20px">
+      <b>Three honest caveats.</b> (1) The green is the seal's <i>hue</i>, deliberately desaturated for
+      long-session comfort — it is <b>not</b> the emblem's exact 100%-saturation green; the gold is sampled
+      from your uploaded image. If you need official values, verify against Pemerintah Aceh's gazetted
+      brand/qanun spec, since the uploaded file may be a redrawn version. (2) The 50–900 scale and all
+      surface/text colours are computed, not from the seal — a sound starting point, not gospel. (3) Gold is
+      accent-only: never white text on it, never gold text on white.
+    </div>
+  </section>
+
+  <footer>
+    Aceh Corporate University · design system. Palette anchored to the Pancacita emblem (green + gold) and tuned
+    for long-session legibility. Contrast figures computed with the WCAG 2.x formula. Fonts: Inter (main) and
+    Lexend (optional reading mode), both SIL Open Font License. Not an official Pemerintah Aceh brand artefact —
+    confirm against the institution's own guidelines before publishing.
+  </footer>
+</div>
